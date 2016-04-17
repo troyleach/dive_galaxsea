@@ -25,11 +25,12 @@ development:
   <<: *default
   database: dive_galaxsea_development
 
+
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: dive_galaxsea
+  username: dive_galaxsea
 
   # The password associated with the postgres role (username).
   #password:
