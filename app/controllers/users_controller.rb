@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    binding.pry
     @user = User.new(user_params)
 
     if @user.save
@@ -54,6 +55,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :phone, :password, :auth_token, :comments)
+      params.require(:user).permit(:first_name, :last_name, :email, :phone, :password, :auth_token, :comments,
+                                   vacations_attributes: [dates_array: []])
     end
 end
