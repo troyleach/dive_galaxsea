@@ -1,0 +1,11 @@
+digraph models_diagram {
+	graph[overlap=false, splines=true, bgcolor="none"]
+	"Diving" [shape=Mrecord, label="{Diving|id :integer\ltitle :character varying\lprice :numeric\ldescription :text\lcreated_at :timestamp without time zone\lupdated_at :timestamp without time zone\l}"]
+	"MiscellaneousPricing" [shape=Mrecord, label="{MiscellaneousPricing|id :integer\ltitle :character varying\lprice :numeric\ldescription :text\lcreated_at :timestamp without time zone\lupdated_at :timestamp without time zone\l}"]
+	"Rental" [shape=Mrecord, label="{Rental|id :integer\ltitle :character varying\lprice :numeric\ldescription :text\lcreated_at :timestamp without time zone\lupdated_at :timestamp without time zone\l}"]
+	"Specialty" [shape=Mrecord, label="{Specialty|id :integer\ltitle :character varying\lprice :numeric\ldescription :text\lcreated_at :timestamp without time zone\lupdated_at :timestamp without time zone\l}"]
+	"Training" [shape=Mrecord, label="{Training|id :integer\ltitle :character varying\lprice :numeric\ldescription :text\lcreated_at :timestamp without time zone\lupdated_at :timestamp without time zone\l}"]
+	"User" [shape=Mrecord, label="{User|id :integer\lfirst_name :character varying\llast_name :character varying\lemail :character varying\lphone :character varying\lpassword :character varying\lauth_token :character varying\ladmin :boolean\lcomments :text\lcreated_at :timestamp without time zone\lupdated_at :timestamp without time zone\l}"]
+	"Vacation" [shape=Mrecord, label="{Vacation|id :integer\luser_id :integer\ldates_array :text\lcreated_at :timestamp without time zone\lupdated_at :timestamp without time zone\ldiving_objects :jsonb\ltraining_objects :jsonb\l}"]
+	"User" -> "Vacation" [arrowtail=odot, arrowhead=crow, dir=both color="#6C383B"]
+}

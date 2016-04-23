@@ -7,6 +7,10 @@ gem 'rails-api'
 
 gem 'spring', :group => :development
 
+group :development, :test do
+   gem 'railroady'
+   gem 'rspec-rails'
+end
 
 gem 'pg'
 

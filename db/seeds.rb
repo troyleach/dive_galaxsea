@@ -6,12 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
-
-#User.create(first_name: "troy", last_name: "leach", email: "troy@email.com", phone: "1231231234", password: "87654321")
-#Diving.create(title: "2 Tank boat dive", price: 90)
-#Diving.create(title: "2 Tank twilight dive", price: 160)
-#Training.create(title: "scuba diver course", price: 275)
-#Training.create(title: "open water certification", price: 425)
 Diving.create("title": "2 Tank boat dive", "price": 90, "description": "this is the description")
 Diving.create("title": "2 Tank twilight dives", "price": 145, "description": "this is the description")
 Diving.create("title": "3 Tank boat dives", "price": 130, "description": "this is the description")
