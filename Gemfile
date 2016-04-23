@@ -16,7 +16,7 @@ gem 'pg'
 
 gem 'pry'
 
-gem 'active_model_serializers'
+gem 'active_model_serializers', "~> 0.10.0.rc5"
 
 gem 'rack-cors', :require => 'rack/cors'
 

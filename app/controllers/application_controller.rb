@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::API
 #  protect_from_forgery with: null_session
   before_filter :cors_preflight_check
+  include ActionController::Serialization
   #after_filter :cors_set_access_control_headers
 
   def cors_preflight_check
