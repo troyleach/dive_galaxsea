@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :specialties, except: [:new, :edit]
+  resources :specialties, except: [:new, :edit]
+  resources :miscellaneous_pricings, except: [:new, :edit]
+  resources :rentals, except: [:new, :edit]
   resources :vacations, except: [:new, :edit]
   resources :trainings, except: [:new, :edit]
   resources :divings, except: [:new, :edit]
