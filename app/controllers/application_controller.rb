@@ -3,8 +3,8 @@ class ApplicationController < ActionController::API
   include ActionController::Serialization
   include ActionController::HttpAuthentication::Basic::ControllerMethods
   include ActionController::HttpAuthentication::Token::ControllerMethods 
+  before_filter :authenticate_user_from_token, except: [:create]
   before_filter :cors_preflight_check
-  before_filter :authenticate_user_from_token, except: [:token]
   #after_filter :cors_set_access_control_headers
 
   def token

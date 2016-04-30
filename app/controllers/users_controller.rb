@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
+  #before_filter :authenticate_user_from_token, only: [:index, :show, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -18,7 +19,6 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    binding.pry
     @user = User.new(user_params)
 
     if @user.save
