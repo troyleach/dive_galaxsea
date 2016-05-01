@@ -56,7 +56,10 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :phone, :password, :auth_token, :comments,
-                                   vacations_attributes: [ :id, dates_array: [], 
+                                   vacations_attributes: [ :id, 
+                                                           :number_of_divers,
+                                                           :resort,
+                                                           dates_array: [], 
                                                            diving_objects: [:id, :title, :price, :description, :created_at, :updated_at],
                                                            training_objects: [:id, :title, :price, :description, :created_at, :updated_at]
                                                          ])

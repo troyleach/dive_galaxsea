@@ -54,7 +54,7 @@ class VacationsController < ApplicationController
     end
 
     def vacation_params
-      params.permit(:user_id, :dates_array, :diving_objects, :training_objects)
+      params.permit(:user_id, :dates_array, :diving_objects, :training_objects, :number_of_divers, :resort)
       #params.require(:vacation).permit(:user_id, :dates_array, :diving_objects, :training_objects)
     end
 end
