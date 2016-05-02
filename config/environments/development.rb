@@ -38,4 +38,22 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
+  # Sending Email
+    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.default :charset => "utf-8"
+  # port 587 is blocked by google
+  # https://cloud.google.com/compute/docs/tutorials/sending-mail/
+  # allowed through ports 465 or 587
+    config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      domain: "mail.google.com",
+      authentication: 'plain',
+      enable_starttls_auto: true,
+      user_name: 'troyleach29@gmail.com',
+      password: 'MY_PASSWORD_GOES_HERE'
+    }
 end
