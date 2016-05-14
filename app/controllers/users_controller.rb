@@ -23,7 +23,6 @@ class UsersController < ApplicationController
 
     if @user.save
       render json: @user, status: :created, location: @user
-      AdminMailer.admin_email(@user).deliver_now
     else
       render json: @user.errors, status: :unprocessable_entity
     end
