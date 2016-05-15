@@ -4,8 +4,9 @@ class AdminMailer < ApplicationMailer
   def admin_email(user)
     @user = user
     @url = ENV["DIVEGALAXSEA_HOST"]
+    @recipients = ['troyleach@outlook.com', 'tleach@canceriq.com']
 
-    mail(to: 'troyleach29@gmail.com',
+    mail(to: @recipients,
          subject: 'YOU HAVE A NEW CLIENT'
         )
   end
