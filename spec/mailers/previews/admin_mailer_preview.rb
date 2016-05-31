@@ -3,4 +3,8 @@ class AdminMailerPreview < ActionMailer::Preview
   def admin_email
     AdminMailer.admin_email(User.last)
   end
+
+  def confirmation_email
+    AdminMailer.confirmation_email(User.last)
+  end
 end

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+      <!--
+           <div>
+        <%= image_tag attachments["logo_original.png"], style: 'width:50; height:50;' %>
+         </div>
+       -->
+    <h1><%= @user.first_name %> <%= @user.last_name %>,</h1>
+      <p>
+          You are recieving this email becuase you sent DiveGalaxsea a request to go diving. If this is not you or you did not request to go diving, please disregard this email and accept our apologies, otherwise we will be in contact with you shortly.
+      </p>
+      <p>
+        This is a copy of what you sent to us.
+      </p>
+      <p>
+        Happy Diving
+      </p>
+      <div class="modal-body" style="width: 600px">
+        <div>
+          <div>
+            <h4>Personal Information:</h4>
+            <table>
+              <tr class="row">
+                <td class="col">First Name:</td>
+                <td class="col"><%= @user.first_name %></td>
+              </tr>
+              <tr class="row">
+                <td class="col">Last Name</td>
+                <td class="col"><%= @user.last_name %></td>
+              </tr>
+              <tr class="row">
+                <td class="col">Number of Divers:</td>
+                <td class="col"><%= @user.vacations[0].number_of_divers if @user.vacations[0].number_of_divers.present? %></td>
+              </tr>
+              <tr class="row">
+                <td class="col">Phone Number:</td>
+                <td class="col"><%= @user.phone %></td>
+              </tr>
+              <tr class="row">
+                <td class="col">Email:</td>
+                <td class="col"><%= @user.email %></td>
+              </tr>
+              <tr class="row">
+                <td class="col">We are staying at:</td>
+                <td class="col"><%= @user.vacations[0].resort %></td>
+              </tr>
+            </table>
+            <hr>
+            <h4>The Dates you selected to go Diving:</h4>
+            <div>
+              <div class="diving">
+                <% if @user.vacations[0].dates_array.size > 0 %>
+                  <table>
+                    <% @user.vacations[0].dates_array.each do |date| %>
+                      <tr class="row" >
+                        <td class="col">
+                          <%= @user.vacations.display_date(date) %>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </table>
+                <% else %>
+                  No Dates selected
+                <% end %>
+              </div>
+              <hr>
+            <h4>Type of Diving you would like to do:</h4>
+            <div>
+              <div class="diving">
+                <h5>Diving</h5>
+                <% if @user.vacations[0].diving_objects.size > 0 %>
+                  <table>
+                    <% @user.vacations[0].diving_objects.each do |dive| %>
+                      <tr class="row" >
+                        <td class="col">
+                          <%= dive["title"] %>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </table>
+                <% else %>
+                  No Diving selected
+                <% end %>
+              </div>
+              <div class="training">
+                <h5>Training</h5>
+                <% if @user.vacations[0].training_objects.size > 0 %>
+                  <table>
+                    <% @user.vacations[0].training_objects.each do |train| %>
+                      <tr class="row" >
+                        <td class="col">
+                          <%= train["title"] %>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </table>
+                <% else %>
+                    No Training selected
+                <% end %>
+              </div>
+            </div>
+
+            <hr>
+            <h4>Addition Information you gave to DiveGalaxsea:</h4>
+            <table>
+              <tr class="row">
+                <td class="col"><%= @user.comments %></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>
