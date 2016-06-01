@@ -25,7 +25,7 @@ class AdminMailer < ApplicationMailer
 
     mail(to: @recipients,
          from: @senders,
-         subject: 'DiveGalaxsea email Conformation'
+         subject: 'Dive Galaxsea email Confirmation'
         )
   end
 end
