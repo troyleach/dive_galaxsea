@@ -12,7 +12,7 @@ class AdminMailer < ApplicationMailer
     puts " *" * 50
     puts @users_email
 
-    mail(from: @user_email,
+    mail(from: @users_email,
          to: @recipients,
          subject: "NEW CLIENT #{@user.first_name} #{@user.last_name}"
         )
