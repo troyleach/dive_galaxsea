@@ -4,13 +4,11 @@ class AdminMailer < ApplicationMailer
   def admin_email(user)
     @user = user
     @url = ENV["DIVEGALAXSEA_HOST"]
-    @recipients = ['troyleach@outlook.com']
     @users_email = @user.email
-    #@recipients = ['troyleach@outlook.com', 'kim@divegalaxsea.com']
+    @recipients = ['kim@divegalaxsea.com', 'troyleach@outlook.com']
+    #@recipients = ['troyleach@outlook.com']
     #attachments["logo_original.png"] = File.read("#{Rails.root}/public/images/logo_original.png")
     #attachments["SSI-NEW.png"] = File.read("#{Rails.root}/public/images/SSI-NEW.png")
-    puts " *" * 50
-    puts @users_email
 
     mail(from: @users_email,
          to: @recipients,
