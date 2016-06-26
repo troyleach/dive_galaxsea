@@ -1,5 +1,5 @@
 class AdminMailer < ApplicationMailer
-  default from: "kim@divegalaxsea.com"
+  default from: "troyleach@outlook.com"
 
   def admin_email(user)
     @user = user
@@ -23,7 +23,7 @@ class AdminMailer < ApplicationMailer
     @url = ENV["DIVEGALAXSEA_HOST"]
     @recipients = "#{@user.first_name} #{@user.last_name} <#{@user.email}>"
     @senders = ['kim@divegalaxsea.com']
-    @bcc = ['troyleach@outlook.com']
+    @cc = ['troyleach@outlook.com']
     #attachments["logo_original.png"] = File.read("#{Rails.root}/public/images/logo_original.png")
     #attachments["SSI-NEW.png"] = File.read("#{Rails.root}/public/images/SSI-NEW.png")
 
