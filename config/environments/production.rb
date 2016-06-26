@@ -86,12 +86,12 @@ Rails.application.configure do
   # https://cloud.google.com/compute/docs/tutorials/sending-mail/
   # in dev I had to hard code password and user name??
     config.action_mailer.smtp_settings = {
-      address: "smtp.gmail.com",
+      address: "smtp.sendgrid.net",
       port: 587,
-      domain: "mail.google.com",
+      domain: "divegalaxsea.herokuapp.com",
       authentication: 'plain',
       enable_starttls_auto: true,
-      user_name: ENV["GMAIL_USERNAME"],
-      password: ENV["GMAIL_PASSWORD"],
+      user_name: ENV["SENDGRID_USERNAME"],
+      password: ENV["SENDGRID_PASSWORD"],
     }
 end

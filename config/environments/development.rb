@@ -48,12 +48,12 @@ Rails.application.configure do
   # https://cloud.google.com/compute/docs/tutorials/sending-mail/
   # allowed through ports 465 or 587
     config.action_mailer.smtp_settings = {
-      address: "smtp.gmail.com",
+      address: "smtp.sendgrid.net",
       port: 587,
-      domain: "mail.google.com",
+      domain: "divegalaxsea.herokuapp.com",
       authentication: 'plain',
       enable_starttls_auto: true,
-      user_name: 'troyleach29@gmail.com',
-      password: 'MY_PASSWORD_GOES_HERE'
+      user_name: ENV["SENDGRID_USERNAME"],
+      password: ENV["SENDGRID_PASSWORD"],
     }
 end
