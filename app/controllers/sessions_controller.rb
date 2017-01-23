@@ -4,8 +4,9 @@ class SessionsController < ApplicationController
     puts ' * ' * 100
     puts params
     user = User.find_by(email: auth_params[:email])
-    puts ' * ' * 100
-    puts user
+    puts ' * passwords' * 100
+    puts user.password
+    puts auth_params[:password]
     puts user.authenticate(auth_params[:password])
     if user.authenticate(auth_params[:password])
       jwt = Auth.issue( {user: user.id,
