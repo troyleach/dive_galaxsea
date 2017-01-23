@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(auth_params[:password])
       jwt = Auth.issue( {user: user.id,
                          admin: user.admin} )
+      puts "this is the jwt #{jwt}"
       render json: {access_token: jwt}
     else
       puts 'this did not work'
