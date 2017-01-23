@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   skip_before_action :authenticate
   def create
     user = User.find_by(email: auth_params[:email])
-    if user && user.authenticate(auth_params[:password])
+    if user.authenticate(auth_params[:password])
       jwt = Auth.issue( {user: user.id,
                          admin: user.admin} )
       puts "this is the jwt #{jwt}"
