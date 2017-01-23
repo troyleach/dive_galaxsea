@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       render json: {access_token: jwt, status: 200}
     else
       puts 'this did not work fucker face'
-      render json: {error: 'You have been denied'}, status: 444
+      render json: {error: 'You have been denied'}, status: 401
       # render json: { error: @person.errors }, status: :bad_request
     end
   end
