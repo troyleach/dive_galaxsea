@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       jwt = Auth.issue( {user: user.id,
                          admin: user.admin} )
       puts "this is the jwt #{jwt}"
-      render json: {access_token: jwt, status: 200}
+      render json: {access_token: jwt}, status: 200
     else
       puts 'this did not work fucker face'
       render json: {error: 'You have been denied'}, status: 401
