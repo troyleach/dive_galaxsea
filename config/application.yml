@@ -1,0 +1,14 @@
+development:
+  SENDGRID_USERNAME: "divegalaxsea"
+  SENDGRID_PASSWORD: "{Love2Dive}"
+  DIVEGALAXSEA_HOST: "https://staging-divegalaxsea.herokuapp.com/"
+  DIVE_GALAXSEA_DATABASE_PASSWORD: "MILOtheDOGiSMYDOG+RACHELisTHEwifeUNIT"
+  AUTH_SECRET: "\ao\x9CG\xC8R\r('\xBD\x1DDa0\x9D\xF2\xEFhq\x1D\xD2nN?J'\xE4\xF9;\xD4\xC1\x06"
+  DROPBOX_ACCESS_TOKEN: "TfMIrZsh-ycAAAAAAAASyoPtJgui9gy9rD3hwe1RVDF8oZsebo912nIViHCPqE_0"
+
+production:
+  SENDGRID_USERNAME: "divegalaxsea"
+  SENDGRID_PASSWORD: "{Love2Dive}"
+  DIVEGALAXSEA_HOST: "https://divegalaxsea.herokuapp.com/"
+  DIVE_GALAXSEA_DATABASE_PASSWORD: "MILOtheDOGiSMYDOG+RACHELisTHEwifeUNIT"
+  AUTH_SECRET: "\ao\x9CG\xC8R\r('\xBD\x1DDa0\x9D\xF2\xEFhq\x1D\xD2nN?J'\xE4\xF9;\xD4\xC1\x06"
