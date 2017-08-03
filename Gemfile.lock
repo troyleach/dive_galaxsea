@@ -122,6 +122,9 @@ GEM
       rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
+    seed_dump (3.2.4)
+      activerecord (>= 4)
+      activesupport (>= 4)
     slop (3.6.0)
     spring (1.7.1)
     sprockets (3.6.0)
@@ -149,4 +152,8 @@ DEPENDENCIES
   rails-api
   rails_12factor
   rspec-rails
+  seed_dump
   spring
+
+BUNDLED WITH
+   1.15.2

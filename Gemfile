@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'seed_dump'
 
 gem 'rails', '4.2.3'
 
