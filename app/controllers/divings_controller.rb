@@ -1,5 +1,6 @@
 class DivingsController < ApplicationController
   before_action :set_diving, only: [:show, :update, :destroy]
+  # TODO need to set up a before_action auth the user only on :update, :create
 
   # GET /divings
   # GET /divings.json

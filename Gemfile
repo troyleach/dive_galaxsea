@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'seed_dump'
+gem 'figaro'
 
 gem 'rails', '4.2.3'
 
@@ -17,13 +18,14 @@ gem 'pg'
 gem 'rails_12factor', group: :production
 
 gem 'pry'
-
+gem 'seed_dump'
 gem 'active_model_serializers', "~> 0.10.0.rc5"
 
 gem 'rack-cors', :require => 'rack/cors'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+gem 'jwt'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

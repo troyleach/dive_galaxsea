@@ -18,6 +18,7 @@ module DiveGalaxsea
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    config.autoload_paths << Rails.root.join('lib')  
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
@@ -26,7 +27,7 @@ module DiveGalaxsea
     config.middleware.insert_before 0, 'Rack::Cors' do
       allow do
         origins '*'
-        resource '*', headers: :any, methods: [:get, :post, :options]
+        resource '*', headers: :any, methods: [:get, :patch, :post, :delete, :options]
       end
     end
 
