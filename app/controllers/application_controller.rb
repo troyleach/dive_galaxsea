@@ -22,7 +22,7 @@ class ApplicationController < ActionController::API
   def cors_preflight_check
     if request.method == :options
       headers['Access-Control-Allow-Origin'] = '*'
-      headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, PATCH, OPTIONS'
+      headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, PATCH, DELETE, OPTIONS'
       headers['Access-Control-Allow-Headers'] = '*'
       headers['Access-Control-Request-Method'] = '*'
       render :text => '', :content_type => 'text/plain'
