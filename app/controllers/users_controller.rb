@@ -1,17 +1,19 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
-  #before_filter :authenticate_user_from_token, only: [:index, :show, :update, :destroy]
+  before_action :set_user, only: %i[show update destroy]
+  # before_filter :authenticate_user_from_token, only: [:index, :show, :update, :destroy]
 
-  def login
-    user = User.find_by(email: params[:email].to_s.downcase)
+  # def login
+  # TODO: erase this, this is now handled in sessions
+  #   user = User.find_by(email: params[:email].to_s.downcase)
+  #   binding.pry
 
-    if user && user.authenticate(params[:password])
-      auth_token = JsonWebToken.encode({user_id: user.id})
-      render json: {auth_token: auth_token}, status: :ok
-    else
-      render json: {error: 'Invalid user / passowrd'}, status: :unauthorized
-    end
-  end
+  #   if user && user.authenticate(params[:password])
+  #     auth_token = JsonWebToken.encode({user_id: user.id})
+  #     render json: {auth_token: auth_token}, status: :ok
+  #   else
+  #     render json: {error: 'Invalid user / passowrd'}, status: :unauthorized
+  #   end
+  # end
 
   # GET /users
   # GET /users.json
@@ -63,18 +65,17 @@ class UsersController < ApplicationController
 
   private
 
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :phone, :password, :auth_token, :comments,
-                                   vacations_attributes: [ :id, 
-                                                           :number_of_divers,
-                                                           :resort,
-                                                           dates_array: [], 
-                                                           diving_objects: [:id, :title, :price, :description, :created_at, :updated_at],
-                                                           training_objects: [:id, :title, :price, :description, :created_at, :updated_at]
-                                                         ])
-    end
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :phone, :password, :auth_token, :comments,
+                                 vacations_attributes: [:id,
+                                                        :number_of_divers,
+                                                        :resort,
+                                                        dates_array: [],
+                                                        diving_objects: %i[id title price description created_at updated_at],
+                                                        training_objects: %i[id title price description created_at updated_at]])
+  end
 end
