@@ -1,13 +1,13 @@
 class ApplicationController < ActionController::API
-#  protect_from_forgery with: null_session
+  #  protect_from_forgery with: null_session
   include ActionController::Serialization
   include ActionController::HttpAuthentication::Basic::ControllerMethods
-  include ActionController::HttpAuthentication::Token::ControllerMethods 
+  include ActionController::HttpAuthentication::Token::ControllerMethods
   before_action :authenticate_user_from_token, except: [:create]
   before_action :cors_preflight_check
-  #after_filter :cors_set_access_control_headers
+  # after_filter :cors_set_access_control_headers
 
-  #the method below checks for the token on requests
+  # the method below checks for the token on requests
   def token
     authenticate_with_http_basic do |email, password|
       user = User.find_by(email: email)
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::API
       headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, PATCH, DELETE, OPTIONS'
       headers['Access-Control-Allow-Headers'] = '*'
       headers['Access-Control-Request-Method'] = '*'
-      render :text => '', :content_type => 'text/plain'
+      render text: '', content_type: 'text/plain'
     end
   end
 
@@ -35,24 +35,22 @@ class ApplicationController < ActionController::API
 
   def current_user
     if auth_present?
-      user = User.find(auth["user"])
-      if user
-        @current_user ||= user
-      end
+      user = User.find(auth['user'])
+      @current_user ||= user if user
     end
   end
 
   def authenticate
-    render json: {error: "unauthorized"}, status: 401
+    render json: { error: 'unauthorized' }, status: 401
     unless logged_in?
     end
   end
-  
+
   private
 
   def user_token
-    request.env["HTTP_AUTHORIZATION"].scan(/Bearer 
-        (.*)$/).flatten.last 
+    request.env['HTTP_AUTHORIZATION'].scan(/Bearer
+        (.*)$/).flatten.last
   end
 
   def auth
@@ -60,14 +58,13 @@ class ApplicationController < ActionController::API
   end
 
   def auth_present?
-    !!request.env.fetch("HTTP_AUTHORIZATION", 
-                        "").scan(/Bearer/).flatten.first
+    !!request.env.fetch('HTTP_AUTHORIZATION',
+                        '').scan(/Bearer/).flatten.first
   end
 
   def authenticate_user_from_token
-    unless authenticate_with_http_token { |token, options| User.find_by(auth_token: token) }
+    unless authenticate_with_http_token { |token, _options| User.find_by(auth_token: token) }
       render json: { error: 'BAD Token' }, status: 401
     end
   end
-
 end
