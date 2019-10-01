@@ -4,8 +4,9 @@ class SessionsController < ApplicationController
     puts "LOGGING params #{params}"
     puts "LOGGING auth_params #{auth_params[:email]}"
     user = User.find_by(email: auth_params[:email])
-    puts "LOGGING user #{user}"
+    puts "LOGGING user auth #{user.authenticate(auth_params[:password])}"
     if user.authenticate(auth_params[:password])
+      puts 'LOGGING'
       jwt = Auth.issue(user: user.email,
                        admin: user.admin)
       user.auth_token = jwt
@@ -13,6 +14,7 @@ class SessionsController < ApplicationController
       puts "LOGGING user #{user}"
       render json: { access_token: jwt }, status: 200
     else
+      puts user.error.inspect
       render json: { error: 'You have been denied' }, status: 401
     end
   end
